@@ -1,0 +1,22 @@
+name: Jacked Action
+on: [push, pull_request]
+jobs:
+  jacked:
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest] # can add more os: windows-latest, macOS-latest
+    steps:
+      - name: Checkout repository # Checkout user's current repository
+        uses: actions/checkout@v3
+
+      - name: Run carbonetes/jacked # runs the github action of jacked.
+        uses: sairen-carbonetes/fork-jacked-action@v1.1.0 # runs the github action using this version. # Fork GitHub Action Testing
+        with: # user’s input reference for scanning options, results that jacked-action supported.
+          scanName: "." # Image name, Tar File Path, or Directory Path. Required*
+          scanType: "directory" # Type "image", "tar", or "directory". Required*
+          fail-criteria: "" # Optionally specify the minimum vulnerability severity to trigger an "error".  Valid choices are "negligible", "low", "medium", "high" and "critical". Required*
+          skipBuildFail: # Set build is always success, ignore assessment result.
+          skipDbUpdate: # Skip Jacked Vulnerability Database Update.
+          ignorePackageNames: # Ignore Package names when scanning... e.g. input: dpkg,tar,bash,...
+          ignoreCves: # Ignore CVES when scanning... e.g. input: CVE-2022-1271,CVE-2022-3715,CVE-2022-1664,...
