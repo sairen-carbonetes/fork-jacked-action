@@ -1,0 +1,22 @@
+name: Jacked Action CARBONETES
+on: [push, pull_request]
+jobs:
+  jacked:
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest] # can add more os: windows-latest, macOS-latest
+    steps:
+      - name: Checkout repository # Checkout user's current repository
+        uses: actions/checkout@v3
+
+      - name: Run carbonetes/jacked # runs the github action of jacked.
+        uses: carbonetes/jacked-action@v1.1.0 # runs the github action using this version. # Fork GitHub Action Testing
+        with: # user’s input reference for scanning options, results that jacked-action supported.
+          scan-name: "." # Image name, Tar File Path, or Directory Path. Required*
+          scan-type: "directory" # Type "image", "tar", or "directory". Required*
+          fail-criteria: "low" # Optionally specify the minimum vulnerability severity to trigger an "error".  Valid choices are "negligible", "low", "medium", "high" and "critical". Required*
+          skip-build-fail: true
+          skip-db-update: true
+          ignore-package-names: "dpkg"
+          ignore-cves: "CVE-2022-1271"
