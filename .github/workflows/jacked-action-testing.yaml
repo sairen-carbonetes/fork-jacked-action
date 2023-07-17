@@ -18,5 +18,5 @@ jobs:
           fail-criteria: "low" # Optionally specify the minimum vulnerability severity to trigger an "error".  Valid choices are "negligible", "low", "medium", "high" and "critical". Required*
           skip-build-fail: false
           skip-db-update: false
-          ignore-package-names: ""
-          ignore-cves: ""
+          ignore-package-names: "dpkg"
+          ignore-cves: "CVE-2022-1271"
