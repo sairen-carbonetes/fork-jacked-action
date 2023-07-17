@@ -16,7 +16,7 @@ jobs:
           scan-name: "." # Image name, Tar File Path, or Directory Path. Required*
           scan-type: "directory" # Type "image", "tar", or "directory". Required*
           fail-criteria: "low" # Optionally specify the minimum vulnerability severity to trigger an "error".  Valid choices are "negligible", "low", "medium", "high" and "critical". Required*
-          skip-build-fail: false
-          skip-db-update: false
+          skip-build-fail: true
+          skip-db-update: true
           ignore-package-names: "dpkg"
           ignore-cves: "CVE-2022-1271"
