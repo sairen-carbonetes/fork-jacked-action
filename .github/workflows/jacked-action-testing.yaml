@@ -13,7 +13,7 @@ jobs:
       - name: Run carbonetes/jacked # runs the github action of jacked.
         uses: sairen-carbonetes/fork-jacked-action@v1.1.0 # runs the github action using this version. # Fork GitHub Action Testing
         with: # user’s input reference for scanning options, results that jacked-action supported.
-          scan-name:: "." # Image name, Tar File Path, or Directory Path. Required*
+          scan-name: "." # Image name, Tar File Path, or Directory Path. Required*
           scan-type: "directory" # Type "image", "tar", or "directory". Required*
           fail-criteria: "low" # Optionally specify the minimum vulnerability severity to trigger an "error".  Valid choices are "negligible", "low", "medium", "high" and "critical". Required*
           skip-build-fail: false
