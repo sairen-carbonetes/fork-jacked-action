@@ -16,7 +16,7 @@ jobs:
           scanName: "." # Image name, Tar File Path, or Directory Path. Required*
           scanType: "directory" # Type "image", "tar", or "directory". Required*
           fail-criteria: "low" # Optionally specify the minimum vulnerability severity to trigger an "error".  Valid choices are "negligible", "low", "medium", "high" and "critical". Required*
-          skipBuildFail: "false"
-          skipDbUpdate: "false"
+          skipBuildFail: false
+          skipDbUpdate: false
           ignorePackageNames: ""
           ignoreCves: ""
